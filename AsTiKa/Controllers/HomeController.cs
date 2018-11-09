@@ -7,7 +7,7 @@ namespace AsTiKa.Controllers
     {
         public ActionResult Index()
         {
-            return this.View();
+            return View();
         }
 
         public ActionResult About()
