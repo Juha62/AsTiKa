@@ -4,16 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AsTiKaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AsTiKaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asiakkaan henkilötiedot">
           <Key>
             <PropertyRef Name="Perustiedot" />
           </Key>
-          <Property Name="Asiakkaan lähiomaiset" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Laskutustiedot" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Yleinen edunvalvoja" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Muuttotiedot" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Muut tiedot" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Asiakkaan lähiomaiset" Type="varchar" MaxLength="50" />
+          <Property Name="Laskutustiedot" Type="varchar" MaxLength="50" />
+          <Property Name="Yleinen edunvalvoja" Type="varchar" MaxLength="50" />
+          <Property Name="Muuttotiedot" Type="varchar" MaxLength="50" />
+          <Property Name="Muut tiedot" Type="varchar" MaxLength="50" />
           <Property Name="Perustiedot" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Asiakkaan hoitotiedot">
@@ -69,12 +69,12 @@
             <PropertyRef Name="Verenpaine" />
           </Key>
           <Property Name="Verenpaine" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="Paino" Type="varchar" MaxLength="10" />
-          <Property Name="Lämmön seuranta" Type="varchar" MaxLength="10" />
-          <Property Name="Nestelista" Type="varchar" MaxLength="50" />
-          <Property Name="Vatsantoiminta" Type="varchar" MaxLength="50" />
-          <Property Name="EKG" Type="nchar" MaxLength="10" />
-          <Property Name="Verensokeri" Type="varchar" MaxLength="10" />
+          <Property Name="Paino" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Lämmön seuranta" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nestelista" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Vatsantoiminta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EKG" Type="varchar(max)" Nullable="false" />
+          <Property Name="Verensokeri" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Infektion seuranta ja hoito">
           <Key>
@@ -118,11 +118,11 @@
         </EntityType>
         <EntityType Name="Rokotuslista">
           <Key>
-            <PropertyRef Name="Anto päivämäärä" />
+            <PropertyRef Name="Rokotteen nimi" />
           </Key>
-          <Property Name="Rokotteen nimi" Type="varchar" MaxLength="50" />
-          <Property Name="Anto päivämäärä" Type="date" Nullable="false" />
-          <Property Name="Tehosterokotuksen antopäivä" Type="date" />
+          <Property Name="Rokotteen nimi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Anto päivämäärä" Type="datetime" Nullable="false" />
+          <Property Name="Tehosterokotuksen antopäivä" Type="datetime" />
           <Property Name="Mahdolliset sivuoireet rokotuksista" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -195,7 +195,8 @@
           <EntitySet Name="Vointi päiväkirja" EntityType="Self.Vointi päiväkirja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vuokrasopimus" EntityType="Self.Vuokrasopimus" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AsTiKaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -203,11 +204,11 @@
           <Key>
             <PropertyRef Name="Perustiedot" />
           </Key>
-          <Property Name="Asiakkaan_lähiomaiset" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Laskutustiedot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Yleinen_edunvalvoja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Muuttotiedot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Muut_tiedot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Asiakkaan_lähiomaiset" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Laskutustiedot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Yleinen_edunvalvoja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Muuttotiedot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Muut_tiedot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Perustiedot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Asiakkaan_hoitotiedot">
@@ -231,7 +232,7 @@
           <Property Name="Psyykkinen_vointi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Hoitoon_hakeutumisen_syy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Asiakkaan_omaisuus">
+        <EntityType Name="Asiakkaan_omaisuu">
           <Key>
             <PropertyRef Name="Vuode_ja_liinavaatteet" />
           </Key>
@@ -263,12 +264,12 @@
             <PropertyRef Name="Verenpaine" />
           </Key>
           <Property Name="Verenpaine" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Paino" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Lämmön_seuranta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Nestelista" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Vatsantoiminta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EKG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Verensokeri" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Paino" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lämmön_seuranta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nestelista" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vatsantoiminta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EKG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Verensokeri" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Infektion_seuranta_ja_hoito">
           <Key>
@@ -312,14 +313,14 @@
         </EntityType>
         <EntityType Name="Rokotuslista">
           <Key>
-            <PropertyRef Name="Anto_päivämäärä" />
+            <PropertyRef Name="Rokotteen_nimi" />
           </Key>
-          <Property Name="Rokotteen_nimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Anto_päivämäärä" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Tehosterokotuksen_antopäivä" Type="DateTime" Precision="0" />
+          <Property Name="Rokotteen_nimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Anto_päivämäärä" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tehosterokotuksen_antopäivä" Type="DateTime" Precision="3" />
           <Property Name="Mahdolliset_sivuoireet_rokotuksista" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -359,7 +360,7 @@
           <Property Name="Hoidon_suunnittelun_kirjaaminen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Hoidon_toteutuksen_kirjaaminen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="Vuokrasopimus">
+        <EntityType Name="Vuokrasopimu">
           <Key>
             <PropertyRef Name="Vuokramäärä" />
           </Key>
@@ -367,23 +368,23 @@
           <Property Name="Huoneiston_numero" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Sopijapuolen_tiedot" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="AsTiKaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AsTiKaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Asiakkaan_henkilötiedot" EntityType="Self.Asiakkaan_henkilötiedot" />
-          <EntitySet Name="Asiakkaan_hoitotiedot" EntityType="Self.Asiakkaan_hoitotiedot" />
-          <EntitySet Name="Asiakkaan_omaisuus" EntityType="Self.Asiakkaan_omaisuus" />
+          <EntitySet Name="Asiakkaan_hoitotiedots" EntityType="Self.Asiakkaan_hoitotiedot" />
+          <EntitySet Name="Asiakkaan_omaisuus" EntityType="Self.Asiakkaan_omaisuu" />
           <EntitySet Name="Asiakkaan_rahan_käyttö" EntityType="Self.Asiakkaan_rahan_käyttö" />
-          <EntitySet Name="Fysioterapian_kirjaukset" EntityType="Self.Fysioterapian_kirjaukset" />
-          <EntitySet Name="Hemodynamiikka" EntityType="Self.Hemodynamiikka" />
-          <EntitySet Name="Infektion_seuranta_ja_hoito" EntityType="Self.Infektion_seuranta_ja_hoito" />
-          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="Fysioterapian_kirjauksets" EntityType="Self.Fysioterapian_kirjaukset" />
+          <EntitySet Name="Hemodynamiikkas" EntityType="Self.Hemodynamiikka" />
+          <EntitySet Name="Infektion_seuranta_ja_hoitoes" EntityType="Self.Infektion_seuranta_ja_hoito" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
           <EntitySet Name="Lääkelista" EntityType="Self.Lääkelista" />
           <EntitySet Name="Lääkärin_lausunnot_ja_hoitosuunnitelmat" EntityType="Self.Lääkärin_lausunnot_ja_hoitosuunnitelmat" />
-          <EntitySet Name="Muistihoitajan_sivu" EntityType="Self.Muistihoitajan_sivu" />
-          <EntitySet Name="Rokotuslista" EntityType="Self.Rokotuslista" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Muistihoitajan_sivus" EntityType="Self.Muistihoitajan_sivu" />
+          <EntitySet Name="Rokotuslistas" EntityType="Self.Rokotuslista" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Tehtävälista_asukkaan_saapuessa_palvelutaloon" EntityType="Self.Tehtävälista_asukkaan_saapuessa_palvelutaloon" />
           <EntitySet Name="Vointi_päiväkirja" EntityType="Self.Vointi_päiväkirja" />
-          <EntitySet Name="Vuokrasopimus" EntityType="Self.Vuokrasopimus" />
+          <EntitySet Name="Vuokrasopimus" EntityType="Self.Vuokrasopimu" />
           <FunctionImport Name="LoginByUsernamePassword" ReturnType="Collection(AsTiKaModel.LoginByUsernamePassword_Result)">
             <Parameter Name="username" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
@@ -399,7 +400,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AsTiKaModelStoreContainer" CdmEntityContainer="AsTiKaEntities">
+        <EntityContainerMapping StorageEntityContainer="AsTiKaModelStoreContainer" CdmEntityContainer="AsTiKaEntities1">
           <EntitySetMapping Name="Asiakkaan_henkilötiedot">
             <EntityTypeMapping TypeName="AsTiKaModel.Asiakkaan_henkilötiedot">
               <MappingFragment StoreEntitySet="Asiakkaan henkilötiedot">
@@ -412,7 +413,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Asiakkaan_hoitotiedot">
+          <EntitySetMapping Name="Asiakkaan_hoitotiedots">
             <EntityTypeMapping TypeName="AsTiKaModel.Asiakkaan_hoitotiedot">
               <MappingFragment StoreEntitySet="Asiakkaan hoitotiedot">
                 <ScalarProperty Name="Asukkaan_perustiedot" ColumnName="Asukkaan perustiedot" />
@@ -435,7 +436,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Asiakkaan_omaisuus">
-            <EntityTypeMapping TypeName="AsTiKaModel.Asiakkaan_omaisuus">
+            <EntityTypeMapping TypeName="AsTiKaModel.Asiakkaan_omaisuu">
               <MappingFragment StoreEntitySet="Asiakkaan omaisuus">
                 <ScalarProperty Name="Henkilökohtaiset_tavarat" ColumnName="Henkilökohtaiset tavarat" />
                 <ScalarProperty Name="Huonekalut" ColumnName="Huonekalut" />
@@ -456,7 +457,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Fysioterapian_kirjaukset">
+          <EntitySetMapping Name="Fysioterapian_kirjauksets">
             <EntityTypeMapping TypeName="AsTiKaModel.Fysioterapian_kirjaukset">
               <MappingFragment StoreEntitySet="Fysioterapian kirjaukset">
                 <ScalarProperty Name="Apuvälineiden_käyttö_ja_ohjaus" ColumnName="Apuvälineiden käyttö ja ohjaus" />
@@ -464,7 +465,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Hemodynamiikka">
+          <EntitySetMapping Name="Hemodynamiikkas">
             <EntityTypeMapping TypeName="AsTiKaModel.Hemodynamiikka">
               <MappingFragment StoreEntitySet="Hemodynamiikka">
                 <ScalarProperty Name="Verenpaine" ColumnName="Verenpaine" />
@@ -477,7 +478,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Infektion_seuranta_ja_hoito">
+          <EntitySetMapping Name="Infektion_seuranta_ja_hoitoes">
             <EntityTypeMapping TypeName="AsTiKaModel.Infektion_seuranta_ja_hoito">
               <MappingFragment StoreEntitySet="Infektion seuranta ja hoito">
                 <ScalarProperty Name="Milloin_infektio_todettu" ColumnName="Milloin infektio todettu" />
@@ -488,7 +489,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Login">
+          <EntitySetMapping Name="Logins">
             <EntityTypeMapping TypeName="AsTiKaModel.Login">
               <MappingFragment StoreEntitySet="Login">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -514,7 +515,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Muistihoitajan_sivu">
+          <EntitySetMapping Name="Muistihoitajan_sivus">
             <EntityTypeMapping TypeName="AsTiKaModel.Muistihoitajan_sivu">
               <MappingFragment StoreEntitySet="Muistihoitajan sivu">
                 <ScalarProperty Name="Tehtyjen_testien_tulokset" ColumnName="Tehtyjen testien tulokset" />
@@ -522,7 +523,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rokotuslista">
+          <EntitySetMapping Name="Rokotuslistas">
             <EntityTypeMapping TypeName="AsTiKaModel.Rokotuslista">
               <MappingFragment StoreEntitySet="Rokotuslista">
                 <ScalarProperty Name="Rokotteen_nimi" ColumnName="Rokotteen nimi" />
@@ -533,7 +534,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="AsTiKaModel.sysdiagrams">
+            <EntityTypeMapping TypeName="AsTiKaModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -576,7 +577,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vuokrasopimus">
-            <EntityTypeMapping TypeName="AsTiKaModel.Vuokrasopimus">
+            <EntityTypeMapping TypeName="AsTiKaModel.Vuokrasopimu">
               <MappingFragment StoreEntitySet="Vuokrasopimus">
                 <ScalarProperty Name="Vuokramäärä" ColumnName="Vuokramäärä" />
                 <ScalarProperty Name="Huoneiston_numero" ColumnName="Huoneiston numero" />
@@ -607,7 +608,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

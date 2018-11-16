@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -8,7 +12,7 @@ namespace AsTiKa.Controllers
 {
     public class Lääkärin_lausunnot_ja_hoitosuunnitelmatController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Lääkärin_lausunnot_ja_hoitosuunnitelmat
         public ActionResult Index()

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\juham\Source\Repos\AsTiKa\AsTiKa\Models\AsTiKaModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\AsTiKa\AsTiKa\Models\AsTiKaModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -8,7 +12,7 @@ namespace AsTiKa.Controllers
 {
     public class VuokrasopimusController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Vuokrasopimus
         public ActionResult Index()
@@ -23,12 +27,12 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vuokrasopimus vuokrasopimus = db.Vuokrasopimus.Find(id);
-            if (vuokrasopimus == null)
+            Vuokrasopimu vuokrasopimu = db.Vuokrasopimus.Find(id);
+            if (vuokrasopimu == null)
             {
                 return HttpNotFound();
             }
-            return View(vuokrasopimus);
+            return View(vuokrasopimu);
         }
 
         // GET: Vuokrasopimus/Create
@@ -42,16 +46,16 @@ namespace AsTiKa.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Vuokramäärä,Huoneiston_numero,Sopijapuolen_tiedot")] Vuokrasopimus vuokrasopimus)
+        public ActionResult Create([Bind(Include = "Vuokramäärä,Huoneiston_numero,Sopijapuolen_tiedot")] Vuokrasopimu vuokrasopimu)
         {
             if (ModelState.IsValid)
             {
-                db.Vuokrasopimus.Add(vuokrasopimus);
+                db.Vuokrasopimus.Add(vuokrasopimu);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(vuokrasopimus);
+            return View(vuokrasopimu);
         }
 
         // GET: Vuokrasopimus/Edit/5
@@ -61,12 +65,12 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vuokrasopimus vuokrasopimus = db.Vuokrasopimus.Find(id);
-            if (vuokrasopimus == null)
+            Vuokrasopimu vuokrasopimu = db.Vuokrasopimus.Find(id);
+            if (vuokrasopimu == null)
             {
                 return HttpNotFound();
             }
-            return View(vuokrasopimus);
+            return View(vuokrasopimu);
         }
 
         // POST: Vuokrasopimus/Edit/5
@@ -74,15 +78,15 @@ namespace AsTiKa.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Vuokramäärä,Huoneiston_numero,Sopijapuolen_tiedot")] Vuokrasopimus vuokrasopimus)
+        public ActionResult Edit([Bind(Include = "Vuokramäärä,Huoneiston_numero,Sopijapuolen_tiedot")] Vuokrasopimu vuokrasopimu)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vuokrasopimus).State = EntityState.Modified;
+                db.Entry(vuokrasopimu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(vuokrasopimus);
+            return View(vuokrasopimu);
         }
 
         // GET: Vuokrasopimus/Delete/5
@@ -92,12 +96,12 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Vuokrasopimus vuokrasopimus = db.Vuokrasopimus.Find(id);
-            if (vuokrasopimus == null)
+            Vuokrasopimu vuokrasopimu = db.Vuokrasopimus.Find(id);
+            if (vuokrasopimu == null)
             {
                 return HttpNotFound();
             }
-            return View(vuokrasopimus);
+            return View(vuokrasopimu);
         }
 
         // POST: Vuokrasopimus/Delete/5
@@ -105,8 +109,8 @@ namespace AsTiKa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)
         {
-            Vuokrasopimus vuokrasopimus = db.Vuokrasopimus.Find(id);
-            db.Vuokrasopimus.Remove(vuokrasopimus);
+            Vuokrasopimu vuokrasopimu = db.Vuokrasopimus.Find(id);
+            db.Vuokrasopimus.Remove(vuokrasopimu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

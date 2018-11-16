@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -8,12 +12,12 @@ namespace AsTiKa.Controllers
 {
     public class HemodynamiikkasController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Hemodynamiikkas
         public ActionResult Index()
         {
-            return View(db.Hemodynamiikka.ToList());
+            return View(db.Hemodynamiikkas.ToList());
         }
 
         // GET: Hemodynamiikkas/Details/5
@@ -23,7 +27,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Hemodynamiikka hemodynamiikka = db.Hemodynamiikka.Find(id);
+            Hemodynamiikka hemodynamiikka = db.Hemodynamiikkas.Find(id);
             if (hemodynamiikka == null)
             {
                 return HttpNotFound();
@@ -46,7 +50,7 @@ namespace AsTiKa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Hemodynamiikka.Add(hemodynamiikka);
+                db.Hemodynamiikkas.Add(hemodynamiikka);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -61,7 +65,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Hemodynamiikka hemodynamiikka = db.Hemodynamiikka.Find(id);
+            Hemodynamiikka hemodynamiikka = db.Hemodynamiikkas.Find(id);
             if (hemodynamiikka == null)
             {
                 return HttpNotFound();
@@ -92,7 +96,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Hemodynamiikka hemodynamiikka = db.Hemodynamiikka.Find(id);
+            Hemodynamiikka hemodynamiikka = db.Hemodynamiikkas.Find(id);
             if (hemodynamiikka == null)
             {
                 return HttpNotFound();
@@ -105,8 +109,8 @@ namespace AsTiKa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Hemodynamiikka hemodynamiikka = db.Hemodynamiikka.Find(id);
-            db.Hemodynamiikka.Remove(hemodynamiikka);
+            Hemodynamiikka hemodynamiikka = db.Hemodynamiikkas.Find(id);
+            db.Hemodynamiikkas.Remove(hemodynamiikka);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

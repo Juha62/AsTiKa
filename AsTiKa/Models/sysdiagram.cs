@@ -12,11 +12,12 @@ namespace AsTiKa.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Asiakkaan_omaisuus
+    public partial class sysdiagram
     {
-        public string Henkilökohtaiset_tavarat { get; set; }
-        public string Huonekalut { get; set; }
-        public string Tekstiilit { get; set; }
-        public string Vuode_ja_liinavaatteet { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

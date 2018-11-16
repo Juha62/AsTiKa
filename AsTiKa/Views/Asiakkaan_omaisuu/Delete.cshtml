@@ -1,4 +1,4 @@
-﻿@model AsTiKa.Models.Rokotuslista
+﻿@model AsTiKa.Models.Asiakkaan_omaisuu
 
 @{
     ViewBag.Title = "Delete";
@@ -8,31 +8,31 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Rokotuslista</h4>
+    <h4>Asiakkaan_omaisuu</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Anto_päivämäärä)
+            @Html.DisplayNameFor(model => model.Henkilökohtaiset_tavarat)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Anto_päivämäärä)
+            @Html.DisplayFor(model => model.Henkilökohtaiset_tavarat)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tehosterokotuksen_antopäivä)
+            @Html.DisplayNameFor(model => model.Huonekalut)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Tehosterokotuksen_antopäivä)
+            @Html.DisplayFor(model => model.Huonekalut)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Mahdolliset_sivuoireet_rokotuksista)
+            @Html.DisplayNameFor(model => model.Tekstiilit)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Mahdolliset_sivuoireet_rokotuksista)
+            @Html.DisplayFor(model => model.Tekstiilit)
         </dd>
 
     </dl>

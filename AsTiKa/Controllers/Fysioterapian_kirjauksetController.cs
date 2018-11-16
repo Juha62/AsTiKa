@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -8,12 +12,12 @@ namespace AsTiKa.Controllers
 {
     public class Fysioterapian_kirjauksetController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Fysioterapian_kirjaukset
         public ActionResult Index()
         {
-            return View(db.Fysioterapian_kirjaukset.ToList());
+            return View(db.Fysioterapian_kirjauksets.ToList());
         }
 
         // GET: Fysioterapian_kirjaukset/Details/5
@@ -23,7 +27,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjaukset.Find(id);
+            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjauksets.Find(id);
             if (fysioterapian_kirjaukset == null)
             {
                 return HttpNotFound();
@@ -46,7 +50,7 @@ namespace AsTiKa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Fysioterapian_kirjaukset.Add(fysioterapian_kirjaukset);
+                db.Fysioterapian_kirjauksets.Add(fysioterapian_kirjaukset);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -61,7 +65,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjaukset.Find(id);
+            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjauksets.Find(id);
             if (fysioterapian_kirjaukset == null)
             {
                 return HttpNotFound();
@@ -92,7 +96,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjaukset.Find(id);
+            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjauksets.Find(id);
             if (fysioterapian_kirjaukset == null)
             {
                 return HttpNotFound();
@@ -105,8 +109,8 @@ namespace AsTiKa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjaukset.Find(id);
-            db.Fysioterapian_kirjaukset.Remove(fysioterapian_kirjaukset);
+            Fysioterapian_kirjaukset fysioterapian_kirjaukset = db.Fysioterapian_kirjauksets.Find(id);
+            db.Fysioterapian_kirjauksets.Remove(fysioterapian_kirjaukset);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

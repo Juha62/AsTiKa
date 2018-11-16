@@ -12,10 +12,11 @@ namespace AsTiKa.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Vuokrasopimus
+    public partial class Asiakkaan_omaisuu
     {
-        public decimal Vuokramäärä { get; set; }
-        public Nullable<decimal> Huoneiston_numero { get; set; }
-        public string Sopijapuolen_tiedot { get; set; }
+        public string Henkilökohtaiset_tavarat { get; set; }
+        public string Huonekalut { get; set; }
+        public string Tekstiilit { get; set; }
+        public string Vuode_ja_liinavaatteet { get; set; }
     }
 }

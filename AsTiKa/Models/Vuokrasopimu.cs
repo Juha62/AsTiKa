@@ -12,12 +12,10 @@ namespace AsTiKa.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Vuokrasopimu
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public decimal Vuokramäärä { get; set; }
+        public Nullable<decimal> Huoneiston_numero { get; set; }
+        public string Sopijapuolen_tiedot { get; set; }
     }
 }

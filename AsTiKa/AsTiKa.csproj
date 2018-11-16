@@ -199,7 +199,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Asiakkaan_henkilötiedotController.cs" />
     <Compile Include="Controllers\Asiakkaan_hoitotiedotController.cs" />
-    <Compile Include="Controllers\Asiakkaan_omaisuusController.cs" />
+    <Compile Include="Controllers\Asiakkaan_omaisuuController.cs" />
     <Compile Include="Controllers\Asiakkaan_rahan_käyttöController.cs" />
     <Compile Include="Controllers\Fysioterapian_kirjauksetController.cs" />
     <Compile Include="Controllers\HemodynamiikkasController.cs" />
@@ -223,7 +223,7 @@
     <Compile Include="Models\Asiakkaan_hoitotiedot.cs">
       <DependentUpon>AsTiKaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Asiakkaan_omaisuus.cs">
+    <Compile Include="Models\Asiakkaan_omaisuu.cs">
       <DependentUpon>AsTiKaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Asiakkaan_rahan_käyttö.cs">
@@ -273,7 +273,7 @@
     <Compile Include="Models\Rokotuslista.cs">
       <DependentUpon>AsTiKaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>AsTiKaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tehtävälista_asukkaan_saapuessa_palvelutaloon.cs">
@@ -282,7 +282,7 @@
     <Compile Include="Models\Vointi_päiväkirja.cs">
       <DependentUpon>AsTiKaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Vuokrasopimus.cs">
+    <Compile Include="Models\Vuokrasopimu.cs">
       <DependentUpon>AsTiKaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -381,11 +381,6 @@
     <Content Include="Views\Asiakkaan_omaisuus\Details.cshtml" />
     <Content Include="Views\Asiakkaan_omaisuus\Edit.cshtml" />
     <Content Include="Views\Asiakkaan_omaisuus\Index.cshtml" />
-    <Content Include="Views\Hemodynamiikkas\Create.cshtml" />
-    <Content Include="Views\Hemodynamiikkas\Delete.cshtml" />
-    <Content Include="Views\Hemodynamiikkas\Details.cshtml" />
-    <Content Include="Views\Hemodynamiikkas\Edit.cshtml" />
-    <Content Include="Views\Hemodynamiikkas\Index.cshtml" />
     <Content Include="Views\Rokotuslistas\Create.cshtml" />
     <Content Include="Views\Rokotuslistas\Delete.cshtml" />
     <Content Include="Views\Rokotuslistas\Details.cshtml" />
@@ -436,6 +431,16 @@
     <Content Include="Views\Vointi_päiväkirja\Details.cshtml" />
     <Content Include="Views\Vointi_päiväkirja\Edit.cshtml" />
     <Content Include="Views\Vointi_päiväkirja\Index.cshtml" />
+    <Content Include="Views\Hemodynamiikkas\Create.cshtml" />
+    <Content Include="Views\Hemodynamiikkas\Delete.cshtml" />
+    <Content Include="Views\Hemodynamiikkas\Details.cshtml" />
+    <Content Include="Views\Hemodynamiikkas\Edit.cshtml" />
+    <Content Include="Views\Hemodynamiikkas\Index.cshtml" />
+    <Content Include="Views\Asiakkaan_omaisuu\Create.cshtml" />
+    <Content Include="Views\Asiakkaan_omaisuu\Delete.cshtml" />
+    <Content Include="Views\Asiakkaan_omaisuu\Details.cshtml" />
+    <Content Include="Views\Asiakkaan_omaisuu\Edit.cshtml" />
+    <Content Include="Views\Asiakkaan_omaisuu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -8,12 +12,12 @@ namespace AsTiKa.Controllers
 {
     public class Muistihoitajan_sivuController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Muistihoitajan_sivu
         public ActionResult Index()
         {
-            return View(db.Muistihoitajan_sivu.ToList());
+            return View(db.Muistihoitajan_sivus.ToList());
         }
 
         // GET: Muistihoitajan_sivu/Details/5
@@ -23,7 +27,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivu.Find(id);
+            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivus.Find(id);
             if (muistihoitajan_sivu == null)
             {
                 return HttpNotFound();
@@ -46,7 +50,7 @@ namespace AsTiKa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Muistihoitajan_sivu.Add(muistihoitajan_sivu);
+                db.Muistihoitajan_sivus.Add(muistihoitajan_sivu);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -61,7 +65,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivu.Find(id);
+            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivus.Find(id);
             if (muistihoitajan_sivu == null)
             {
                 return HttpNotFound();
@@ -92,7 +96,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivu.Find(id);
+            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivus.Find(id);
             if (muistihoitajan_sivu == null)
             {
                 return HttpNotFound();
@@ -105,8 +109,8 @@ namespace AsTiKa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivu.Find(id);
-            db.Muistihoitajan_sivu.Remove(muistihoitajan_sivu);
+            Muistihoitajan_sivu muistihoitajan_sivu = db.Muistihoitajan_sivus.Find(id);
+            db.Muistihoitajan_sivus.Remove(muistihoitajan_sivu);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

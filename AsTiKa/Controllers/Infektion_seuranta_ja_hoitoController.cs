@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -9,12 +12,12 @@ namespace AsTiKa.Controllers
 {
     public class Infektion_seuranta_ja_hoitoController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Infektion_seuranta_ja_hoito
         public ActionResult Index()
         {
-            return View(db.Infektion_seuranta_ja_hoito.ToList());
+            return View(db.Infektion_seuranta_ja_hoitoes.ToList());
         }
 
         // GET: Infektion_seuranta_ja_hoito/Details/5
@@ -24,7 +27,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoito.Find(id);
+            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoitoes.Find(id);
             if (infektion_seuranta_ja_hoito == null)
             {
                 return HttpNotFound();
@@ -47,7 +50,7 @@ namespace AsTiKa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Infektion_seuranta_ja_hoito.Add(infektion_seuranta_ja_hoito);
+                db.Infektion_seuranta_ja_hoitoes.Add(infektion_seuranta_ja_hoito);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,7 +65,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoito.Find(id);
+            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoitoes.Find(id);
             if (infektion_seuranta_ja_hoito == null)
             {
                 return HttpNotFound();
@@ -93,7 +96,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoito.Find(id);
+            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoitoes.Find(id);
             if (infektion_seuranta_ja_hoito == null)
             {
                 return HttpNotFound();
@@ -106,8 +109,8 @@ namespace AsTiKa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(DateTime id)
         {
-            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoito.Find(id);
-            db.Infektion_seuranta_ja_hoito.Remove(infektion_seuranta_ja_hoito);
+            Infektion_seuranta_ja_hoito infektion_seuranta_ja_hoito = db.Infektion_seuranta_ja_hoitoes.Find(id);
+            db.Infektion_seuranta_ja_hoitoes.Remove(infektion_seuranta_ja_hoito);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

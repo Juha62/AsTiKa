@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -9,22 +12,22 @@ namespace AsTiKa.Controllers
 {
     public class RokotuslistasController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Rokotuslistas
         public ActionResult Index()
         {
-            return View(db.Rokotuslista.ToList());
+            return View(db.Rokotuslistas.ToList());
         }
 
         // GET: Rokotuslistas/Details/5
-        public ActionResult Details(DateTime id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rokotuslista rokotuslista = db.Rokotuslista.Find(id);
+            Rokotuslista rokotuslista = db.Rokotuslistas.Find(id);
             if (rokotuslista == null)
             {
                 return HttpNotFound();
@@ -47,7 +50,7 @@ namespace AsTiKa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Rokotuslista.Add(rokotuslista);
+                db.Rokotuslistas.Add(rokotuslista);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -56,13 +59,13 @@ namespace AsTiKa.Controllers
         }
 
         // GET: Rokotuslistas/Edit/5
-        public ActionResult Edit(DateTime id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rokotuslista rokotuslista = db.Rokotuslista.Find(id);
+            Rokotuslista rokotuslista = db.Rokotuslistas.Find(id);
             if (rokotuslista == null)
             {
                 return HttpNotFound();
@@ -87,13 +90,13 @@ namespace AsTiKa.Controllers
         }
 
         // GET: Rokotuslistas/Delete/5
-        public ActionResult Delete(DateTime id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Rokotuslista rokotuslista = db.Rokotuslista.Find(id);
+            Rokotuslista rokotuslista = db.Rokotuslistas.Find(id);
             if (rokotuslista == null)
             {
                 return HttpNotFound();
@@ -104,10 +107,10 @@ namespace AsTiKa.Controllers
         // POST: Rokotuslistas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(DateTime id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Rokotuslista rokotuslista = db.Rokotuslista.Find(id);
-            db.Rokotuslista.Remove(rokotuslista);
+            Rokotuslista rokotuslista = db.Rokotuslistas.Find(id);
+            db.Rokotuslistas.Remove(rokotuslista);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -15,10 +15,10 @@ namespace AsTiKa.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class AsTiKaEntities : DbContext
+    public partial class AsTiKaEntities1 : DbContext
     {
-        public AsTiKaEntities()
-            : base("name=AsTiKaEntities")
+        public AsTiKaEntities1()
+            : base("name=AsTiKaEntities1")
         {
         }
     
@@ -28,21 +28,21 @@ namespace AsTiKa.Models
         }
     
         public virtual DbSet<Asiakkaan_henkilötiedot> Asiakkaan_henkilötiedot { get; set; }
-        public virtual DbSet<Asiakkaan_hoitotiedot> Asiakkaan_hoitotiedot { get; set; }
-        public virtual DbSet<Asiakkaan_omaisuus> Asiakkaan_omaisuus { get; set; }
+        public virtual DbSet<Asiakkaan_hoitotiedot> Asiakkaan_hoitotiedots { get; set; }
+        public virtual DbSet<Asiakkaan_omaisuu> Asiakkaan_omaisuus { get; set; }
         public virtual DbSet<Asiakkaan_rahan_käyttö> Asiakkaan_rahan_käyttö { get; set; }
-        public virtual DbSet<Fysioterapian_kirjaukset> Fysioterapian_kirjaukset { get; set; }
-        public virtual DbSet<Hemodynamiikka> Hemodynamiikka { get; set; }
-        public virtual DbSet<Infektion_seuranta_ja_hoito> Infektion_seuranta_ja_hoito { get; set; }
-        public virtual DbSet<Login> Login { get; set; }
+        public virtual DbSet<Fysioterapian_kirjaukset> Fysioterapian_kirjauksets { get; set; }
+        public virtual DbSet<Hemodynamiikka> Hemodynamiikkas { get; set; }
+        public virtual DbSet<Infektion_seuranta_ja_hoito> Infektion_seuranta_ja_hoitoes { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Lääkelista> Lääkelista { get; set; }
         public virtual DbSet<Lääkärin_lausunnot_ja_hoitosuunnitelmat> Lääkärin_lausunnot_ja_hoitosuunnitelmat { get; set; }
-        public virtual DbSet<Muistihoitajan_sivu> Muistihoitajan_sivu { get; set; }
-        public virtual DbSet<Rokotuslista> Rokotuslista { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Muistihoitajan_sivu> Muistihoitajan_sivus { get; set; }
+        public virtual DbSet<Rokotuslista> Rokotuslistas { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tehtävälista_asukkaan_saapuessa_palvelutaloon> Tehtävälista_asukkaan_saapuessa_palvelutaloon { get; set; }
         public virtual DbSet<Vointi_päiväkirja> Vointi_päiväkirja { get; set; }
-        public virtual DbSet<Vuokrasopimus> Vuokrasopimus { get; set; }
+        public virtual DbSet<Vuokrasopimu> Vuokrasopimus { get; set; }
     
         public virtual ObjectResult<LoginByUsernamePassword_Result> LoginByUsernamePassword(string username, string password)
         {

@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using AsTiKa.Models;
 
@@ -8,12 +12,12 @@ namespace AsTiKa.Controllers
 {
     public class Asiakkaan_hoitotiedotController : Controller
     {
-        private AsTiKaEntities db = new AsTiKaEntities();
+        private AsTiKaEntities1 db = new AsTiKaEntities1();
 
         // GET: Asiakkaan_hoitotiedot
         public ActionResult Index()
         {
-            return View(db.Asiakkaan_hoitotiedot.ToList());
+            return View(db.Asiakkaan_hoitotiedots.ToList());
         }
 
         // GET: Asiakkaan_hoitotiedot/Details/5
@@ -23,7 +27,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedot.Find(id);
+            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedots.Find(id);
             if (asiakkaan_hoitotiedot == null)
             {
                 return HttpNotFound();
@@ -46,7 +50,7 @@ namespace AsTiKa.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Asiakkaan_hoitotiedot.Add(asiakkaan_hoitotiedot);
+                db.Asiakkaan_hoitotiedots.Add(asiakkaan_hoitotiedot);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -61,7 +65,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedot.Find(id);
+            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedots.Find(id);
             if (asiakkaan_hoitotiedot == null)
             {
                 return HttpNotFound();
@@ -92,7 +96,7 @@ namespace AsTiKa.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedot.Find(id);
+            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedots.Find(id);
             if (asiakkaan_hoitotiedot == null)
             {
                 return HttpNotFound();
@@ -105,8 +109,8 @@ namespace AsTiKa.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedot.Find(id);
-            db.Asiakkaan_hoitotiedot.Remove(asiakkaan_hoitotiedot);
+            Asiakkaan_hoitotiedot asiakkaan_hoitotiedot = db.Asiakkaan_hoitotiedots.Find(id);
+            db.Asiakkaan_hoitotiedots.Remove(asiakkaan_hoitotiedot);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
